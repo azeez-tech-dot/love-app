@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Question ❤️</title>
+
+<style>
+body {
+    text-align: center;
+    margin-top: 100px;
+    font-family: Arial;
+    background-color: #ffe6f0;
+}
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    margin: 20px;
+}
+#noBtn {
+    position: absolute;
+}
+</style>
+
+<script>
+function moveNo() {
+    let x = Math.random() * (window.innerWidth - 150);
+    let y = Math.random() * (window.innerHeight - 80);
+    document.getElementById("noBtn").style.left = x + "px";
+    document.getElementById("noBtn").style.top = y + "px";
+}
+</script>
+
+</head>
+<body>
+
+<h1>Will you be my forever love? ❤️</h1>
+
+<button onclick="window.location.href='/yes'">Yes 😍</button>
+<button id="noBtn" onmouseover="moveNo()">No 🙈</button>
+
+</body>
+</html>
