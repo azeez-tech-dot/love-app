@@ -1,107 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Always & Forever</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forever Us</title>
 
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: radial-gradient(circle at bottom, #12001f, #000);
-      font-family: 'Segoe UI', sans-serif;
-      color: white;
-      overflow-x: hidden;
-      text-align: center;
-    }
+<style>
+body{
+  margin:0;
+  height:100vh;
+  background:url("/static/bg_page2.png") no-repeat center center fixed;
+  background-size:cover;
+  font-family:'Segoe UI', sans-serif;
+  overflow:hidden;
+  color:white;
+}
 
-    .love-text {
-      margin-top: 40px;
-      font-size: 36px;
-      font-weight: bold;
-      color: #ff77c8;
-      animation: pulse 2s infinite;
-      text-shadow: 0 0 30px #ff4da6;
-    }
+.overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.45);
+}
 
-    @keyframes pulse {
-      0% { opacity: 0.7; }
-      100% { opacity: 1; }
-    }
+h1{
+  position:relative;
+  text-align:center;
+  margin-top:40px;
+  font-size:42px;
+  color:#ffd6e8;
+  text-shadow:0 0 30px rgba(255,100,170,1);
+  animation:glow 2.5s infinite alternate;
+  z-index:2;
+}
 
-    .gallery img {
-      width: 80%;
-      max-width: 280px;
-      margin: 20px auto;
-      display: block;
-      border-radius: 25px;
-      animation: float 5s ease-in-out infinite;
-      box-shadow: 0 0 30px rgba(255, 77, 166, 0.6);
-    }
+@keyframes glow{
+  from{ text-shadow:0 0 15px #ff7abf; }
+  to{ text-shadow:0 0 40px #ffb6d9; }
+}
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-    }
+.slider{
+  position:absolute;
+  bottom:120px;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  z-index:2;
+}
 
-    .music-btn {
-      margin: 30px;
-      padding: 14px 30px;
-      font-size: 18px;
-      border-radius: 40px;
-      border: none;
-      background: linear-gradient(45deg, #ff2f92, #ff77c8);
-      color: white;
-      box-shadow: 0 0 25px #ff4da6;
-    }
+.slider img{
+  width:240px;
+  border-radius:20px;
+  box-shadow:0 0 35px rgba(255,150,200,0.7);
+  animation:float 6s ease-in-out infinite alternate;
+}
 
-    .spark {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      background: #fff;
-      border-radius: 50%;
-      animation: sky 5s linear infinite;
-    }
+.slider img:nth-child(2){
+  animation-delay:1.5s;
+}
+.slider img:nth-child(3){
+  animation-delay:3s;
+}
 
-    @keyframes sky {
-      from { transform: translateY(100vh); opacity: 1; }
-      to { transform: translateY(-100vh); opacity: 0; }
-    }
-  </style>
+@keyframes float{
+  from{ transform:translateY(0px); }
+  to{ transform:translateY(-30px); }
+}
+
+audio{
+  position:absolute;
+  bottom:25px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:2;
+}
+</style>
 </head>
 
 <body>
 
-<div class="love-text">
-  You are my always and forever
+<div class="overlay"></div>
+
+<h1>You are my love, now & forever 💖</h1>
+
+<div class="slider">
+  <img src="/static/pic1.jpg">
+  <img src="/static/pic2.jpg">
+  <img src="/static/pic3.jpg">
 </div>
 
-<div class="gallery">
-  <img src="{{ url_for('static', filename='pic1.jpg') }}">
-  <img src="{{ url_for('static', filename='pic2.jpg') }}">
-  <img src="{{ url_for('static', filename='pic3.jpg') }}">
-</div>
-
-<button class="music-btn" onclick="playMusic()">Play Our Song</button>
-
-<iframe id="music" style="display:none" allow="autoplay"></iframe>
-
-<script>
-function playMusic() {
-  document.getElementById("music").src =
-    "https://www.youtube.com/embed/AJtDXIazrMo?autoplay=1";
-}
-
-/* Sky sparkles */
-setInterval(() => {
-  const s = document.createElement("div");
-  s.className = "spark";
-  s.style.left = Math.random() * window.innerWidth + "px";
-  document.body.appendChild(s);
-  setTimeout(() => s.remove(), 5000);
-}, 120);
-</script>
+<audio controls autoplay loop>
+  <source src="/static/love.mp3" type="audio/mpeg">
+</audio>
 
 </body>
 </html>
