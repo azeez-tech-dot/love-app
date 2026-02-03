@@ -1,55 +1,110 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Question ❤️</title>
+  <title>Forever Question</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
-      text-align: center;
-      background: #fff0f5;
-      font-family: Arial;
-      padding-top: 80px;
+      margin: 0;
+      height: 100vh;
+      background: radial-gradient(circle at bottom, #1a0033, #000);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
     }
 
-    h1 {
-      color: #ff2f92;
+    .container {
+      text-align: center;
+      z-index: 2;
+    }
+
+    .question {
+      font-size: 34px;
+      font-weight: 600;
+      color: #ffd6f0;
+      text-shadow: 0 0 20px #ff5fa2;
+      animation: glow 2s infinite alternate;
+      margin-bottom: 40px;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff5fa2; }
+      to { text-shadow: 0 0 30px #ff99cc; }
     }
 
     button {
-      padding: 12px 30px;
+      padding: 14px 36px;
       font-size: 18px;
+      border-radius: 40px;
       border: none;
-      border-radius: 30px;
-      margin: 20px;
+      margin: 15px;
       cursor: pointer;
+      transition: all 0.3s ease;
     }
 
     #yes {
-      background: #ff2f92;
+      background: linear-gradient(45deg, #ff2f92, #ff8acb);
       color: white;
+      box-shadow: 0 0 25px #ff5fa2;
+    }
+
+    #yes:hover {
+      transform: scale(1.1);
     }
 
     #no {
-      background: #ccc;
+      background: transparent;
+      color: #ccc;
+      border: 2px solid #555;
       position: absolute;
+    }
+
+    /* Spark particles */
+    .spark {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: white;
+      border-radius: 50%;
+      animation: rise 4s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes rise {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-800px); opacity: 0; }
     }
   </style>
 </head>
 
 <body>
 
-<h1>Will you be my forever love? 💖</h1>
-
-<button id="yes" onclick="window.location.href='/yes'">Yes ❤️</button>
-<button id="no" onmouseover="moveNo()">No 💔</button>
+<div class="container">
+  <div class="question">Will you be my forever love?</div>
+  <button id="yes" onclick="window.location.href='/yes'">Yes</button>
+  <button id="no" onmouseover="moveNo()">No</button>
+</div>
 
 <script>
 function moveNo() {
-  const btn = document.getElementById("no");
-  btn.style.top = Math.random() * 400 + "px";
-  btn.style.left = Math.random() * 300 + "px";
+  const no = document.getElementById("no");
+  no.style.left = Math.random() * 80 + "vw";
+  no.style.top = Math.random() * 80 + "vh";
 }
+
+/* Create sparkles */
+setInterval(() => {
+  const s = document.createElement("div");
+  s.className = "spark";
+  s.style.left = Math.random() * window.innerWidth + "px";
+  s.style.bottom = "0px";
+  document.body.appendChild(s);
+  setTimeout(() => s.remove(), 4000);
+}, 150);
 </script>
 
 </body>
