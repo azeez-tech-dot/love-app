@@ -10,12 +10,20 @@
             background: #fff0f5;
             font-family: Arial;
         }
-
         img {
             width: 80%;
             max-width: 300px;
             border-radius: 20px;
             margin: 15px 0;
+        }
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 20px;
+            border: none;
+            background: #ff4d88;
+            color: white;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -30,17 +38,28 @@
 <img src="/static/pic2.jpg">
 <img src="/static/pic3.jpg">
 
-<!-- Hidden YouTube AUDIO -->
-<iframe
+<br><br>
+
+<!-- Play Button -->
+<button onclick="playMusic()">▶ Play Music</button>
+
+<!-- Hidden YouTube Audio -->
+<iframe id="yt"
   width="1"
   height="1"
-  src="https://www.youtube.com/embed/AJtDXIazrMo?autoplay=1&mute=1"
+  src=""
   frameborder="0"
   allow="autoplay">
 </iframe>
 
+<script>
+function playMusic() {
+    document.getElementById("yt").src =
+      "https://www.youtube.com/embed/AJtDXIazrMo?autoplay=1";
+}
+</script>
+
 <p>🎵 Love Me Like You Do</p>
-<p>(Tap screen once to enable sound)</p>
 
 </body>
 </html>
