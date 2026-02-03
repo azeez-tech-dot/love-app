@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Question ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      text-align: center;
+      background: #fff0f5;
+      font-family: Arial;
+      padding-top: 80px;
+    }
+
+    h1 {
+      color: #ff2f92;
+    }
+
+    button {
+      padding: 12px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      margin: 20px;
+      cursor: pointer;
+    }
+
+    #yes {
+      background: #ff2f92;
+      color: white;
+    }
+
+    #no {
+      background: #ccc;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Will you be my forever love? 💖</h1>
+
+<button id="yes" onclick="window.location.href='/yes'">Yes ❤️</button>
+<button id="no" onmouseover="moveNo()">No 💔</button>
+
+<script>
+function moveNo() {
+  const btn = document.getElementById("no");
+  btn.style.top = Math.random() * 400 + "px";
+  btn.style.left = Math.random() * 300 + "px";
+}
+</script>
+
+</body>
+</html>

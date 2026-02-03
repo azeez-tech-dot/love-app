@@ -1,66 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>You Said Yes ❤️</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forever ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            text-align: center;
-            background: #fff0f5;
-            font-family: Arial;
-        }
-        img {
-            width: 80%;
-            max-width: 300px;
-            border-radius: 20px;
-            margin: 15px 0;
-        }
-        button {
-            padding: 12px 25px;
-            font-size: 16px;
-            border-radius: 20px;
-            border: none;
-            background: #ff4d88;
-            color: white;
-            cursor: pointer;
-        }
-    </style>
+  <style>
+    body {
+      background: #0b0014;
+      text-align: center;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .sparkle {
+      font-size: 34px;
+      font-weight: 700;
+      margin-top: 40px;
+      color: #ff4da6;
+      animation: glow 1.2s infinite alternate;
+    }
+
+    @keyframes glow {
+      0% {
+        text-shadow:
+          0 0 5px #ff4da6,
+          0 0 10px #ff4da6,
+          0 0 20px #ff0066;
+      }
+      100% {
+        text-shadow:
+          0 0 15px #ffffff,
+          0 0 30px #ff4da6,
+          0 0 60px #ff0066;
+      }
+    }
+
+    img {
+      width: 85%;
+      max-width: 320px;
+      border-radius: 25px;
+      margin: 18px 0;
+      box-shadow: 0 0 25px rgba(255, 0, 150, 0.4);
+    }
+
+    .music-btn {
+      background: linear-gradient(45deg, #ff0066, #ff4da6);
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-size: 18px;
+      margin: 25px 0;
+      box-shadow: 0 0 20px rgba(255, 77, 166, 0.8);
+    }
+  </style>
 </head>
 
 <body>
 
-<h1>You chose the best option ❤️</h1>
-<h2>My heart is yours forever 💕</h2>
+  <div class="sparkle">
+    You are my always and forever ✨💖
+  </div>
 
-<!-- Images -->
-<img src="/static/pic1.jpg">
-<img src="/static/pic2.jpg">
-<img src="/static/pic3.jpg">
+  <img src="{{ url_for('static', filename='pic1.jpg') }}">
+  <img src="{{ url_for('static', filename='pic2.jpg') }}">
+  <img src="{{ url_for('static', filename='pic3.jpg') }}">
 
+  <button class="music-btn" onclick="playMusic()">▶ Play Our Song</button>
 
-<br><br>
+  <iframe id="music"
+    width="1" height="1"
+    src=""
+    allow="autoplay"
+    style="display:none;">
+  </iframe>
 
-<!-- Play Button -->
-<button onclick="playMusic()">▶ Play Music</button>
-
-<!-- Hidden YouTube Audio -->
-<iframe id="yt"
-  width="1"
-  height="1"
-  src=""
-  frameborder="0"
-  allow="autoplay">
-</iframe>
-
-<script>
-function playMusic() {
-    document.getElementById("yt").src =
-      "https://www.youtube.com/embed/AJtDXIazrMo?autoplay=1";
-}
-</script>
-
-<p>🎵 Love Me Like You Do</p>
-
-</body>
-</html>
+  <script>
+    function playMusic() {
+      document.getElementById("music").src =
+        "https://www.youtube.com/embed/AJtDXIazrMo?autoplay=1";
+    }
+  </script>
